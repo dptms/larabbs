@@ -16,10 +16,10 @@
                         <div class="media-body">
                             <hr>
                             <h4><strong>个人简介</strong></h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ea earum est maiores molestiae nam officiis, quos reprehenderit ullam vitae? Aliquid expedita ipsa quibusdam? Accusantium earum incidunt laborum molestiae nulla.</p>
+                            <p>{{$user->introduction}}</p>
                             <hr>
                             <h4><strong>注册于</strong></h4>
-                            <p>2014-02-03</p>
+                            <p>{{$user->created_at->diffForHumans()}}</p>
                         </div>
                     </div>
                 </div>
