@@ -10,8 +10,7 @@
                 <div class="panel-body">
                     <div class="media">
                         <div align="center">
-                            <img class="thumbnail img-responsive"
-                                 src="{{auth()->user()->avatar}}">
+                            <img class="thumbnail img-responsive" src="{{$user->avatar}}">
                         </div>
                         <div class="media-body">
                             <hr>
