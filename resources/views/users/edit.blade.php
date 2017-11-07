@@ -12,7 +12,7 @@
         @include('common.error')
 
         <div class="panel-body">
-            <form action="{{route('users.update',$user)}}" method="post" accept-charset="UTF-8">
+            <form action="{{route('users.update',$user)}}" method="post" accept-charset="UTF-8" enctype="multipart/form-data">
                 {{method_field('PUT')}}
                 {{csrf_field()}}
                 <div class="form-group">
@@ -23,6 +23,11 @@
                 <div class="form-group">
                     <label for="email-field">邮箱</label>
                     <input class="form-control" type="email" id="email-field" name="email" value="{{old('email',$user->email)}}">
+                </div>
+
+                <div class="form-group">
+                    <label for="avatar-field">头像</label>
+                    <input class="form-control" type="file" id="avatar-field" name="avatar">
                 </div>
 
                 <div class="form-group">
