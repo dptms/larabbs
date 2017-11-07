@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-lg-3 col-md-3 hidden-sm hidden-xs">
             {{--用户个人简介--}}
-            <div class="panel panel-default">
+            <div class="panel panel-default user-info">
                 <div class="panel-body">
                     <div class="media">
                         <div align="center">
