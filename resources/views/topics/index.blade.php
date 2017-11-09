@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title','话题')
+@section('title',isset($category)?$category->name:'话题列表')
 
 @section('content')
     <div class="row">
@@ -14,7 +14,11 @@
                     </ul>
                 </div>
                 <div class="panel-body">
+                    {{--话题列表--}}
                     @include('topics._topic_list')
+                </div>
+                <div class="panel-footer">
+                    {!! $topics->render() !!}
                 </div>
             </div>
         </div>

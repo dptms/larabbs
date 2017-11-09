@@ -1,17 +1,14 @@
-
 // Fonts
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
-
 // Variables
 @import "variables";
-
 // Bootstrap
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";
 
 /* universal */
 
 body {
-  font-family: Hiragino Sans GB, "Hiragino Sans GB", Helvetica, "Microsoft YaHei", Arial,sans-serif;
+  font-family: Hiragino Sans GB, "Hiragino Sans GB", Helvetica, "Microsoft YaHei", Arial, sans-serif;
 }
 
 /* header */
@@ -28,7 +25,7 @@ body {
 /* Sticky footer styles */
 html {
   position: relative;
-  min-height: 100% ;
+  min-height: 100%;
 }
 
 body {
@@ -39,7 +36,7 @@ body {
 .footer {
   position: absolute;
   bottom: 0;
-  width: 100% ;
+  width: 100%;
   /* Set the fixed height of the footer here */
   height: 60px;
   background-color: #000;
@@ -59,16 +56,16 @@ body {
   }
 }
 
-.users-show-page{
-  .user-info{
-    .thumbnail{
+.users-show-page {
+  .user-info {
+    .thumbnail {
       margin-bottom: 0px;
     }
   }
 }
 
 /* Topic Index Page */
-.topics-index-page {
+.topics-index-page, .categories-show-page {
   .topic-list {
     .nav > li > a {
       position: relative;
@@ -80,7 +77,7 @@ body {
       color: #444444;
     }
     .meta {
-      font-size:0.9em;
+      font-size: 0.9em;
       color: #b3b3b3;
       a {
         color: #b3b3b3;
