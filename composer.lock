@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9ccd4a263563cde9ed6843bed3522ad5",
+    "content-hash": "0ee78557fecf39d15677d51fdc9c9e0a",
     "packages": [
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -606,6 +606,75 @@
             "time": "2017-03-20T17:10:46+00:00"
         },
         {
+            "name": "hieu-le/active",
+            "version": "3.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/letrunghieu/active.git",
+                "reference": "42d0f50be74b89d730bb4c0ee8c32447630506c6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/letrunghieu/active/zipball/42d0f50be74b89d730bb4c0ee8c32447630506c6",
+                "reference": "42d0f50be74b89d730bb4c0ee8c32447630506c6",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "laravel/framework": "^5.5",
+                "php": ">=7.0"
+            },
+            "require-dev": {
+                "codeclimate/php-test-reporter": "dev-master",
+                "orchestra/testbench": "^3.1",
+                "phpunit/phpunit": "~6.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "HieuLe\\Active\\ActiveServiceProvider"
+                    ],
+                    "aliases": {
+                        "Active": "HieuLe\\Active\\Facades\\Active"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "HieuLe\\Active\\": "src/",
+                    "HieuLe\\ActiveTest\\": "tests/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Hieu Le",
+                    "email": "letrunghieu.cse09@gmail.com",
+                    "homepage": "https://www.hieule.info"
+                }
+            ],
+            "description": "The helper class for Laravel (4/5) applications to get active class base on current route",
+            "homepage": "https://www.hieule.info/tag/laravel-active/",
+            "keywords": [
+                "active",
+                "laravel",
+                "routing"
+            ],
+            "time": "2017-09-07T02:36:51+00:00"
+        },
+        {
             "name": "intervention/image",
             "version": "2.4.1",
             "source": {
@@ -782,16 +851,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.5.19",
+            "version": "v5.5.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "c678100e84934ec85c9f8bc26bd0a60222682719"
+                "reference": "ce0019d22a83b1b240330ea4115ae27a4d75d79c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/c678100e84934ec85c9f8bc26bd0a60222682719",
-                "reference": "c678100e84934ec85c9f8bc26bd0a60222682719",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/ce0019d22a83b1b240330ea4115ae27a4d75d79c",
+                "reference": "ce0019d22a83b1b240330ea4115ae27a4d75d79c",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -879,7 +948,7 @@
                 "nexmo/client": "Required to use the Nexmo transport (~1.0).",
                 "pda/pheanstalk": "Required to use the beanstalk queue driver (~3.0).",
                 "predis/predis": "Required to use the redis cache and queue drivers (~1.0).",
-                "pusher/pusher-php-server": "Required to use the Pusher broadcast driver (~2.0).",
+                "pusher/pusher-php-server": "Required to use the Pusher broadcast driver (~3.0).",
                 "symfony/css-selector": "Required to use some of the crawler integration testing tools (~3.3).",
                 "symfony/dom-crawler": "Required to use most of the crawler integration testing tools (~3.3).",
                 "symfony/psr-http-message-bridge": "Required to psr7 bridging features (~1.0)."
@@ -915,7 +984,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2017-10-25T19:10:45+00:00"
+            "time": "2017-11-07T14:24:50+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -4073,16 +4142,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "6.4.3",
+            "version": "6.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "06b28548fd2b4a20c3cd6e247dc86331a7d4db13"
+                "reference": "562f7dc75d46510a4ed5d16189ae57fbe45a9932"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/06b28548fd2b4a20c3cd6e247dc86331a7d4db13",
-                "reference": "06b28548fd2b4a20c3cd6e247dc86331a7d4db13",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/562f7dc75d46510a4ed5d16189ae57fbe45a9932",
+                "reference": "562f7dc75d46510a4ed5d16189ae57fbe45a9932",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -4159,7 +4228,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-10-16T13:18:59+00:00"
+            "time": "2017-11-08T11:26:09+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -4853,16 +4922,16 @@
         },
         {
             "name": "summerblue/generator",
-            "version": "0.5.9",
+            "version": "0.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/summerblue/generator.git",
-                "reference": "ff0b99bde3efdd6106e9b8045ca8bf73f2d29868"
+                "reference": "8f1ddaf48bb7c2e328dec618c84f49ecbdb0ba29"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/summerblue/generator/zipball/ff0b99bde3efdd6106e9b8045ca8bf73f2d29868",
-                "reference": "ff0b99bde3efdd6106e9b8045ca8bf73f2d29868",
+                "url": "https://api.github.com/repos/summerblue/generator/zipball/8f1ddaf48bb7c2e328dec618c84f49ecbdb0ba29",
+                "reference": "8f1ddaf48bb7c2e328dec618c84f49ecbdb0ba29",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -4912,7 +4981,7 @@
                 "laravel5",
                 "scaffold"
             ],
-            "time": "2017-09-18T00:58:53+00:00"
+            "time": "2017-11-09T06:53:14+00:00"
         },
         {
             "name": "theseer/tokenizer",

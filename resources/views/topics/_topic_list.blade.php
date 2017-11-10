@@ -22,17 +22,17 @@
                     <div class="media-body meta">
                         <a href="{{route('categories.show',$topic->category)}}" title="{{$topic->category->name}}">
                             <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
-                            {{$topic->category->name}}
+                            &nbsp;{{$topic->category->name}}
                         </a>
                         <span> · </span>
                         <a href="{{route('users.show',$topic->user)}}" title="{{$topic->user->name}}">
                             <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                            {{$topic->user->name}}
+                            &nbsp;{{$topic->user->name}}
                         </a>
                         <span> · </span>
                         <a href="#">
-                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                            {{$topic->created_at->diffForHumans()}}
+                            <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+                            &nbsp;{{$topic->created_at->diffForHumans()}}
                         </a>
                     </div>
                 </div>
