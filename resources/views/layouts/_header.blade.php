@@ -41,8 +41,17 @@
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
                 @guest
-                    <li><a href="{{route('login')}}">登录</a></li>
-                    <li><a href="{{route('register')}}">注册</a></li>
+                    <li>
+                        <a href="{{route('login')}}">
+                            <span class="glyphicon glyphicon-log-in"></span> 登录
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{route('register')}}">
+                            <span class="glyphicon glyphicon-registration-mark"></span>
+                            注册
+                        </a>
+                    </li>
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
@@ -56,15 +65,22 @@
 
                             <ul class="dropdown-menu" role="menu">
                                 <li>
-                                    <a href="{{route('users.show',Auth::user())}}">个人中心</a>
+                                    <a href="{{route('users.show',Auth::user())}}">
+                                        <span class="glyphicon glyphicon-user"></span>
+                                        个人中心
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="{{route('users.edit',Auth::user())}}">编辑资料</a>
+                                    <a href="{{route('users.edit',Auth::user())}}">
+                                        <span class="glyphicon glyphicon-edit"></span>
+                                        编辑资料
+                                    </a>
                                 </li>
                                 <li>
                                     <a href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
+                                        <span class="glyphicon glyphicon-log-out"></span>
                                         退出登录
                                     </a>
 

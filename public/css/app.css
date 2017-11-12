@@ -8446,3 +8446,9 @@ body {
   border-top: 1px solid #dcebf5;
 }
 
+.topics-index-page .topic-list .page-panel,
+.categories-show-page .topic-list .page-panel {
+  background-color: #fff;
+  padding: 0 15px;
+}
+

@@ -6,6 +6,12 @@
     <div class="row">
         {{--话题内容--}}
         <div class="col-md-9 col-lg-9 topic-list">
+            @if(isset($category))
+                {{--话题头--}}
+                <div class="alert alert-info" role="alert">
+                    <strong>{{$category->name}} ：</strong>{{$category->description}}
+                </div>
+            @endif
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <ul class="nav nav-pills">
@@ -19,7 +25,7 @@
                     {{--话题列表--}}
                     @include('topics._topic_list')
                 </div>
-                <div class="panel-footer">
+                <div class="panel-footer page-panel">
                     {!! $topics->render() !!}
                 </div>
             </div>
