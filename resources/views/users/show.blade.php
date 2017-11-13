@@ -29,7 +29,9 @@
             {{--用户标题--}}
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <h1 class="panel-title" style="font-size: 30px">{{$user->name}} <small>{{$user->email}}</small></h1>
+                    <h1 class="panel-title" style="font-size: 30px">{{$user->name}}
+                        <small>{{$user->email}}</small>
+                    </h1>
                 </div>
             </div>
 
@@ -38,7 +40,11 @@
             {{--发布的内容--}}
             <div class="panel panel-default">
                 <div class="panel-body">
-                    暂无数据~
+                    <ul class="nav nav-tabs">
+                        <li role="presentation" class="active"><a href="#">Ta 的话题</a></li>
+                        <li role="presentation"><a href="#">Ta 的回复</a></li>
+                    </ul>
+                    @include('users._topics',['topics'=>$user->topics()->recent()->paginate(5)])
                 </div>
             </div>
         </div>

@@ -62,6 +62,28 @@ body {
       margin-bottom: 0px;
     }
   }
+  .nav-tabs {
+    margin-bottom: 20px;
+    > li.active > a {
+      background-color: #fff;
+    }
+  }
+
+  .list-group {
+    .list-group-item {
+      border: none;
+      margin-bottom: 0px;
+      border-bottom: 1px solid #efefef;
+
+      .meta {
+        color: #b3b3b3;
+      }
+    }
+  }
+
+  .pagination {
+    margin: 0 0;
+  }
 }
 
 /* Topic Index Page */
@@ -92,9 +114,9 @@ body {
       border: 0;
       border-top: 1px solid #dcebf5;
     }
-    .page-panel{
+    .page-panel {
       background-color: #fff;
-      padding:0 15px;
+      padding: 0 15px;
     }
   }
 }
