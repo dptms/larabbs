@@ -31,7 +31,7 @@
 
                                     <div class="form-group">
                                         <input class="form-control" type="text" name="title" id="title-field"
-                                               value="{{ old('title', $topic->title ) }}" placeholder="请填写标题" required />
+                                               value="{{ old('title', $topic->title ) }}" placeholder="请填写标题" required/>
                                     </div>
                                     <div class="form-group">
                                         <select class="form-control" name="category_id" required>
@@ -43,7 +43,8 @@
                                     </div>
                                     <div class="form-group">
                                         <textarea name="body" id="body-field" class="form-control" rows="3"
-                                                  placeholder="请填入至少三个字符的内容" required>{{ old('body', $topic->body ) }}</textarea>
+                                                  placeholder="请填入至少三个字符的内容"
+                                                  required>{{ old('body', $topic->body ) }}</textarea>
                                     </div>
                                     <div class="well well-sm">
                                         <button type="submit" class="btn btn-primary">保存</button>
@@ -56,4 +57,23 @@
         </div>
     </div>
 
+@endsection
+
+@section('css')
+    <link rel="stylesheet" href="{{asset('css/simditor.css')}}">
+@endsection
+
+@section('js')
+    <script type="text/javascript" src="{{ asset('js/module.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/hotkeys.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/uploader.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/simditor.js') }}"></script>
+
+    <script>
+        $(function () {
+            var editor = new Simditor({
+                textarea: '#body-field'
+            });
+        });
+    </script>
 @endsection

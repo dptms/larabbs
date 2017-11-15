@@ -13,6 +13,7 @@
 
     <!-- style -->
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
+    @yield('css')
 </head>
 <body>
 <div id="app" class="{{route_class()}}-page">
@@ -26,5 +27,6 @@
 
 <!-- script -->
 <script src="{{asset('js/app.js')}}"></script>
+@yield('js')
 </body>
 </html>
