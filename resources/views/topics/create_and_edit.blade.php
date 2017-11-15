@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title',$topic->id?'编辑话题':'新建话题')
+
 @section('content')
 
     <div class="container">
@@ -7,12 +9,12 @@
             <div class="panel panel-default">
 
                 <div class="panel-heading">
-                    <h1>
-                        <i class="glyphicon glyphicon-edit"></i> Topic /
+                    <h1 class="text-center">
+                        <i class="glyphicon glyphicon-edit"></i>
                         @if($topic->id)
-                            Edit #{{$topic->id}}
+                            修改话题 #{{$topic->id}}
                         @else
-                            Create
+                            新建话题
                         @endif
                     </h1>
                 </div>
