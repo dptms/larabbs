@@ -11,7 +11,7 @@
 
                 <div class="media-body">
                     <div class="media-heading">
-                        <a href="{{route('topics.show',$topic)}}">
+                        <a href="{{$topic->links()}}">
                             {{$topic->title}}
                         </a>
                         <a href="#" class="pull-right">

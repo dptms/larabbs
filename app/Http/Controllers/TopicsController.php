@@ -18,17 +18,23 @@ class TopicsController extends Controller
     public function index(TopicRequest $request)
     {
         $topics = Topic::withOrder($request->order)->paginate();
+
         return view('topics.index', compact('topics'));
     }
 
-    public function show(Topic $topic)
+    public function show(Request $request, Topic $topic)
     {
+        if (!empty($topic->slug) && $request->slug != $topic->slug) {
+            return redirect($topic->links(), 301);
+        }
+
         return view('topics.show', compact('topic'));
     }
 
     public function create(Topic $topic)
     {
         $categories = Category::all();
+
         return view('topics.create_and_edit', compact('topic', 'categories'));
     }
 
@@ -39,14 +45,15 @@ class TopicsController extends Controller
         $topic->excerpt = $request->body;
         $topic->save();
 
-        return redirect()->route('topics.show', $topic->id)->with('success', '成功创建话题');
+        return redirect()->to($topic->links())->with('success', '成功创建话题');
     }
 
     public function edit(Topic $topic)
     {
         $this->authorize('update', $topic);
         $categories = Category::all();
-        return view('topics.create_and_edit', compact('topic','categories'));
+
+        return view('topics.create_and_edit', compact('topic', 'categories'));
     }
 
     public function update(TopicRequest $request, Topic $topic)
@@ -74,13 +81,14 @@ class TopicsController extends Controller
             'file_path' => '',
         ];
         if ($file = $request->upload_file) {
-            $result=$uploader->save($file,'topics',\Auth::id(),'1024');
-            if($result){
+            $result = $uploader->save($file, 'topics', \Auth::id(), '1024');
+            if ($result) {
                 $data['success'] = 'true';
                 $data['msg'] = '成功';
                 $data['file_path'] = $result['path'];
             }
         }
+
         return $data;
     }
 }
