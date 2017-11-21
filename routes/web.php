@@ -22,9 +22,12 @@ Route::resource('users', 'UsersController', ['only' => ['show', 'edit', 'update'
 
 //Topics Routes...
 Route::resource('topics', 'TopicsController', ['only' => ['index', 'create', 'store', 'update', 'edit', 'destroy']]);
-Route::post('/topics/upload_image','TopicsController@upload_image')->name('topics.upload_image');
-Route::get('/topics/{topic}/{slug?}','TopicsController@show')->name('topics.show');
+Route::post('/topics/upload_image', 'TopicsController@upload_image')->name('topics.upload_image');
+Route::get('/topics/{topic}/{slug?}', 'TopicsController@show')->name('topics.show');
 
 //Categories Routes...
 Route::resource('categories', 'CategoriesController', ['only' => ['show']]);
 Route::resource('replies', 'RepliesController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
+
+Route::get('test',function(Faker\Generator $faker){
+});
