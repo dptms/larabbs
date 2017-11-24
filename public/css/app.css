@@ -8939,3 +8939,17 @@ body {
   line-height: 38px;
 }
 
+.topic-reply hr {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.topic-reply a {
+  color: inherit;
+}
+
+.topic-reply .meta {
+  color: #b3b3b3;
+  font-size: 0.9em;
+}
+

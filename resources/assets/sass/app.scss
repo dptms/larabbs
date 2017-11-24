@@ -135,3 +135,19 @@ body {
     }
   }
 }
+
+.topic-reply {
+  hr {
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  .meta {
+    color: #b3b3b3;
+    font-size: 0.9em;
+  }
+}

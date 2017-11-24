@@ -22,7 +22,7 @@
             </div>
         </div>
 
-        <div class="col-md-9">
+        <div class="col-md-9 col-lg-9 col-sm-12 col-xs-12 topic-content">
             <div class="panel panel-default">
                 <div class="panel-body">
                     <h1 class="text-center">{{$topic->title}}</h1>
@@ -41,7 +41,8 @@
                     @can('update',$topic)
                         <div class="operate">
                             <hr>
-                            <a href="{{ route('topics.edit', $topic->id) }}" class="btn btn-default pull-left" role="button">
+                            <a href="{{ route('topics.edit', $topic->id) }}" class="btn btn-default pull-left"
+                               role="button">
                                 <i class="glyphicon glyphicon-edit"></i> 编辑
                             </a>
                             <form action="{{route('topics.destroy',$topic)}}" method="post">
@@ -57,7 +58,12 @@
                 </div>
             </div>
 
-            
+            <div class="panel panel-default topic-reply">
+                <div class="panel-body">
+                    @include('topics._reply_box',['topic'=>$topic])
+                    @include('topics._reply_list',['replies'=>$topic->replies()->with('user')->get()])
+                </div>
+            </div>
         </div>
     </div>
 
