@@ -27,7 +27,9 @@ Route::get('/topics/{topic}/{slug?}', 'TopicsController@show')->name('topics.sho
 
 //Categories Routes...
 Route::resource('categories', 'CategoriesController', ['only' => ['show']]);
-Route::resource('replies', 'RepliesController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
+
+//Replies Routes...
+Route::resource('replies', 'RepliesController', ['only' => ['store','destroy']]);
 
 Route::get('test',function(Faker\Generator $faker){
 });
