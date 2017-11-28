@@ -8953,3 +8953,11 @@ body {
   font-size: 0.9em;
 }
 
+.notifications-badge .badge-hint {
+  background-color: #d15b47 !important;
+}
+
+.notifications-badge .badge-fade {
+  background-color: #EBE8E8;
+}
+

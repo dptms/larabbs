@@ -29,7 +29,10 @@ Route::get('/topics/{topic}/{slug?}', 'TopicsController@show')->name('topics.sho
 Route::resource('categories', 'CategoriesController', ['only' => ['show']]);
 
 //Replies Routes...
-Route::resource('replies', 'RepliesController', ['only' => ['store','destroy']]);
+Route::resource('replies', 'RepliesController', ['only' => ['store', 'destroy']]);
 
-Route::get('test',function(Faker\Generator $faker){
+//Notifications Routes...
+Route::resource('notifications', 'NotificationsController', ['only' => ['index']]);
+
+Route::get('test', function (Faker\Generator $faker) {
 });
