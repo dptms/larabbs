@@ -6,7 +6,7 @@
                     {{$reply->topic->title}}
                 </a>
                 <div class="reply-content">
-                    {{$reply->content}}
+                    {!! $reply->content !!}
                 </div>
                 <div class="meta">
                     <span class="glyphicon glyphicon-time"></span>
