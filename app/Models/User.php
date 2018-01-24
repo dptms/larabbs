@@ -65,4 +65,22 @@ class User extends Authenticatable
     {
         return $this->hasMany(Reply::class);
     }
+
+    public function setPasswordAttribute($value)
+    {
+        if (strlen($value) != 60) {
+            $value = bcrypt($value);
+        }
+
+        $this->attributes['password'] = $value;
+    }
+
+    public function setAvatarAttribute($value)
+    {
+        if (!starts_with($value, 'http')) {
+            $value = config('app.url') . '/uploads/images/avatar/' . $value;
+        }
+
+        $this->attributes['avatar'] = $value;
+    }
 }
