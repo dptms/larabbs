@@ -35,5 +35,5 @@ Route::resource('replies', 'RepliesController', ['only' => ['store', 'destroy']]
 Route::resource('notifications', 'NotificationsController', ['only' => ['index']]);
 
 Route::get('test', function (Faker\Generator $faker) {
-    dd(public_path() . '/uploads/images/avatars/');
+    
 });
