@@ -10,8 +10,8 @@
     <meta name="csrf-token" content="{{csrf_token()}}">
 
     <title>@yield('title','LaraBBS')</title>
-    <meta name="description" content="@yield('description','LaraBBS 爱好者社区')">
-
+    <meta name="description" content="@yield('description',setting('seo_description'))">
+    <meta name="keyword" content="{{setting('seo_keywords')}}">
     <!-- style -->
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
     @yield('css')
