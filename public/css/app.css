@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);@charset "UTF-8";
+@charset "UTF-8";
 
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
@@ -8959,5 +8959,20 @@ body {
 
 .notifications-badge .badge-fade {
   background-color: #EBE8E8;
+}
+
+.sidebar .panel-body {
+  padding: 12px;
+}
+
+.sidebar hr {
+  margin-top: 8px;
+  margin-bottom: 10px;
+}
+
+.sidebar .active-users a.media {
+  color: #797878;
+  line-height: 26px;
+  font-size: 0.9em;
 }
 

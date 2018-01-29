@@ -1,7 +1,27 @@
-<div class="panel">
+<div class="panel panel-default">
     <div class="panel-body">
         <a class="btn btn-success btn-block" href="{{route('topics.create')}}">
             <span class="glyphicon glyphicon-pencil"></span> 新建帖子
         </a>
     </div>
 </div>
+
+@if(count($active_users))
+    <div class="panel panel-default">
+        <div class="panel-body active-users">
+            <div class="text-center">活跃用户</div>
+            <hr>
+            @foreach($active_users as $active_user)
+                <a class="media" href="{{ route('users.show',$active_user->id) }}">
+                    <div class="media-left media-middle">
+                        <img src="{{ $active_user->avatar }}" alt="用户头像" width="24px" height="24px"
+                             class="media-object img-circle">
+                    </div>
+                    <div class="media-body">
+                        <span class="media-heading">{{ $active_user->name }}</span>
+                    </div>
+                </a>
+            @endforeach
+        </div>
+    </div>
+@endif

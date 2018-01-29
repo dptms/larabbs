@@ -1,5 +1,3 @@
-// Fonts
-@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
 // Variables
 @import "variables";
 // Bootstrap
@@ -158,5 +156,24 @@ body {
   }
   .badge-fade {
     background-color: #EBE8E8;
+  }
+}
+
+.sidebar {
+  .panel-body {
+    padding: 12px;
+  }
+
+  hr {
+    margin-top: 8px;
+    margin-bottom: 10px;
+  }
+
+  .active-users {
+    a.media {
+      color: #797878;
+      line-height: 26px;
+      font-size: 0.9em;
+    }
   }
 }
