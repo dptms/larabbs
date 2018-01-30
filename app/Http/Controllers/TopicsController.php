@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Handlers\ImageUploadHandler;
 use App\Models\Category;
+use App\Models\Link;
 use App\Models\Topic;
 use App\Http\Requests\TopicRequest;
 use App\Models\User;
@@ -16,11 +17,12 @@ class TopicsController extends Controller
         $this->middleware('auth', ['except' => ['index', 'show']]);
     }
 
-    public function index(TopicRequest $request,User $user)
+    public function index(TopicRequest $request, User $user, Link $link)
     {
         $topics = Topic::withOrder($request->order)->paginate();
         $active_users = $user->getActiveUsers();
-        return view('topics.index', compact('topics','active_users'));
+        $links = $link->getAllCache();
+        return view('topics.index', compact('topics', 'active_users', 'links'));
     }
 
     public function show(Request $request, Topic $topic)
@@ -77,8 +79,8 @@ class TopicsController extends Controller
     {
         // 初始化返回数据 默认是失败的
         $data = [
-            'success'   => 'false',
-            'msg'       => '失败',
+            'success' => 'false',
+            'msg' => '失败',
             'file_path' => '',
         ];
         if ($file = $request->upload_file) {

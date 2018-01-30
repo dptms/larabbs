@@ -52,7 +52,7 @@ return [
     'actions' => [
         'clear_cache' => [
             // 情况系统缓存
-            'title' => '情况系统缓存',
+            'title' => '清空系统缓存',
             // 不同状态时页面的提醒
             'message' => [
                 'active' => '正在清空缓存...',
