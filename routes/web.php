@@ -35,10 +35,7 @@ Route::resource('replies', 'RepliesController', ['only' => ['store', 'destroy']]
 //Notifications Routes...
 Route::resource('notifications', 'NotificationsController', ['only' => ['index']]);
 
-Route::get('test', function (Faker\Generator $faker) {
-    $res = \App\Models\Reply::query()->select(DB::raw('user_id,count(*) as reply_count'))
-        ->where('created_at', '>=', \Carbon\Carbon::now()->subDays(90))
-        ->groupBy('user_id')
-        ->toSql();
+Route::get('test', function () {
+    $res = \Carbon\Carbon::now();
     dd($res);
 });

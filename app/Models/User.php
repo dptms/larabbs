@@ -3,13 +3,15 @@
 namespace App\Models;
 
 use App\Models\Traits\ActiveUser;
+use App\Models\Traits\LastActivedAtHelper;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use ActiveUser;
+    use ActiveUser; // 活跃用户统计
+    use LastActivedAtHelper; // 用户最后活跃时间记录
     use HasRoles;
     use Notifiable {
         // 重写 trait 里面 notify 方法 变更方法名为 laravelNotify
