@@ -11,7 +11,9 @@ use Spatie\Permission\Traits\HasRoles;
 class User extends Authenticatable
 {
     use ActiveUser; // 活跃用户统计
+
     use LastActivedAtHelper; // 用户最后活跃时间记录
+
     use HasRoles;
     use Notifiable {
         // 重写 trait 里面 notify 方法 变更方法名为 laravelNotify
@@ -40,7 +42,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'introduction', 'avatar',
+        'name', 'email', 'password', 'introduction', 'avatar', 'phone',
     ];
 
     /**
