@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 
+use App\Http\Requests\Api\AuthorizationRequest;
 use App\Http\Requests\Api\SocialAuthorizationRequest;
 use App\Models\User;
 use Laravel\Socialite\Facades\Socialite;
@@ -53,6 +54,43 @@ class AuthorizationsController extends Controller
                 break;
         }
 
-        return $this->response->array(['token' => $user->id]);
+        $token = auth()->guard('api')->fromUser($user);
+        return $this->responseWithToken($token);
+    }
+
+    public function store(AuthorizationRequest $request)
+    {
+        $username = $request->username;
+
+        filter_var($username, FILTER_VALIDATE_EMAIL) ? $credentials['email'] = $username : $credentials['phone'] = $username;
+
+        $credentials['password'] = $request->password;
+
+        if (!$token = auth()->guard('api')->attempt($credentials)) {
+            return $this->response->errorUnauthorized('用户名或密码错误');
+        }
+
+        return $this->responseWithToken($token)->setStatusCode(201);
+    }
+
+    protected function responseWithToken($token)
+    {
+        return $this->response->array([
+            'access_token' => $token,
+            'token_type' => 'Bearer',
+            'expires_in' => auth()->guard('api')->factory()->getTTL() * 60,
+        ]);
+    }
+
+    public function update()
+    {
+        $token = auth()->guard('api')->refresh();
+        return $this->responseWithToken($token);
+    }
+
+    public function destroy()
+    {
+        auth()->guard('api')->logout();
+        return $this->response->noContent();
     }
 }
