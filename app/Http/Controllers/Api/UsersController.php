@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Requests\Api\UserRequest;
 use App\Models\User;
+use App\Transformers\UserTransformer;
 use Illuminate\Support\Facades\Cache;
 
 class UsersController extends Controller
@@ -28,6 +29,18 @@ class UsersController extends Controller
 
         Cache::forget($request->verification_key);
 
-        return $this->response->created();
+        return $this->response
+            ->item($user, New UserTransformer())
+            ->setMeta([
+                'access_token' => auth()->guard('api')->fromUser($user),
+                'token_type' => 'Bearer',
+                'expires_in' => auth()->guard('api')->factory()->getTTL() * 60,
+            ])
+            ->setStatusCode(201);
+    }
+
+    public function me()
+    {
+        return $this->response->item($this->user(), new UserTransformer());
     }
 }
