@@ -48,7 +48,7 @@ trait ActiveUser
             ->groupBy('user_id')
             ->get();
         foreach ($topic_users as $user) {
-            $this->users[$user->id]['score'] = $this->topic_weight * $user->topic_count;
+            $this->users[$user->user_id]['score'] = $this->topic_weight * $user->topic_count;
         }
     }
 

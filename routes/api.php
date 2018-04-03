@@ -47,13 +47,22 @@ $api->version('v1', [
         'expires' => config('api.rate_limits.access.expires'),
     ], function ($api) {
         // 游客可以访问
+        // 分类列表
         $api->get('categories', 'CategoriesController@index')->name('api.categories.index');
+        // 话题列表
         $api->get('topics', 'TopicsController@index')->name('api.topics.index');
+        // 话题详情
         $api->get('topics/{topic}', 'TopicsController@show')->name('api.topics.show');
+        // 某个用户的所有话题
         $api->get('users/{user}/topics', 'TopicsController@userIndex')->name('api.users.topics.index');
+        // 某个话题所有评论
         $api->get('topics/{topic}/replies', 'RepliesController@index')->name('api.topics.replies.index');
+        // 某个用户所有评论
         $api->get('users/{user}/replies', 'RepliesController@userIndex')->name('api.users.replies.index');
+        // 资源推荐列表
         $api->get('links', 'LinksController@index')->name('api.links.index');
+        //活跃用户
+        $api->get('actived/users', 'UsersController@activedIndex')->name('api.actived.users.index');
         // 需要 token 验证的接口
         $api->group(['middleware' => 'api.auth'], function ($api) {
             // 当前登录用户信息
