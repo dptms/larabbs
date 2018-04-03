@@ -83,5 +83,7 @@ class Kernel extends HttpKernel
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         // 访问节流，类似于『1分钟只能请求10次』的需求，一般在 API 中使用
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        // 接口语言设置
+        'change-local' => \App\Http\Middleware\ChangeLocal::class,
     ];
 }
