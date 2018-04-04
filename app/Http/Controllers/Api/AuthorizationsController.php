@@ -55,6 +55,7 @@ class AuthorizationsController extends Controller
         }
 
         $token = auth()->guard('api')->fromUser($user);
+
         return $this->responseWithToken($token);
     }
 
@@ -85,12 +86,14 @@ class AuthorizationsController extends Controller
     public function update()
     {
         $token = auth()->guard('api')->refresh();
+
         return $this->responseWithToken($token);
     }
 
     public function destroy()
     {
         auth()->guard('api')->logout();
+
         return $this->response->noContent();
     }
 }

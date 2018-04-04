@@ -45,6 +45,7 @@ class TopicsController extends Controller
     {
         $this->authorize('update', $topic);
         $topic->update($request->all());
+
         return $this->response->item($topic, new TopicTransformer());
     }
 
@@ -53,6 +54,7 @@ class TopicsController extends Controller
         $this->authorize('update', $topic);
 
         $topic->delete();
+
         return $this->response->noContent();
     }
 

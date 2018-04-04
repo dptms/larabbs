@@ -13,12 +13,14 @@ class RepliesController extends Controller
     public function index(Topic $topic)
     {
         $replies = $topic->replies()->paginate(20);
+
         return $this->response->paginator($replies, new ReplyTransformer());
     }
 
     public function userIndex(User $user)
     {
         $replies = $user->replies()->paginate(20);
+
         return $this->response->paginator($replies, new ReplyTransformer());
     }
 

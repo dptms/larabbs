@@ -19,6 +19,7 @@ class VerificationCodesController extends Controller
 
         if (!hash_equals($captchaData['code'], $request->captcha_code)) {
             Cache::forget($request->captcha_key);
+
             return $this->response->errorUnauthorized('验证码错误');
         }
 
@@ -40,6 +41,7 @@ class VerificationCodesController extends Controller
             } catch (ClientException $exception) {
                 $response = $exception->getResponse();
                 $result = json_decode($response->getBody()->getContents(), true);
+
                 return $this->response->errorInternal($result['msg'] ?? '短信发送异常');
             }
         }

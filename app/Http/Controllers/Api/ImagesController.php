@@ -21,6 +21,6 @@ class ImagesController extends Controller
         $image->user_id = $user->id;
         $image->save();
 
-        return $this->response->item($image,new ImageTransformer())->setStatusCode(201);
+        return $this->response->item($image, new ImageTransformer())->setStatusCode(201);
     }
 }
