@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Listeners\PushNotification;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use SocialiteProviders\Manager\SocialiteWasCalled;
@@ -19,6 +20,9 @@ class EventServiceProvider extends ServiceProvider
         ],
         SocialiteWasCalled::class => [
             'SocialiteProviders\Weixin\WeixinExtendSocialite@handle',
+        ],
+        'eloquent.created:Illuminate\Notifications\DatabaseNotification' => [
+            PushNotification::class,
         ],
     ];
 
