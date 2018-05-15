@@ -94,12 +94,12 @@ class AuthorizationsController extends Controller
             $credentials['password'] = $request->password;
 
             // 验证用户名和密码是否正确
-            if(!Auth::guard('api')->once($credentials)){
+            if (!auth()->guard('api')->once($credentials)) {
                 return $this->response->errorUnauthorized('用户名或密码错误');
             }
 
             // 获取对应用户
-            $user = Auth::guard('api')->getUser();
+            $user = auth()->guard('api')->getUser();
             $attributes['weapp_openid'] = $data['openid'];
         }
 
@@ -107,7 +107,7 @@ class AuthorizationsController extends Controller
         $user->update($attributes);
 
         // 为用户创建 JWT
-        $token = Auth::guard('api')->fromUser($user);
+        $token = auth()->guard('api')->fromUser($user);
 
         return $this->responseWithToken($token)->setStatusCode(201);
     }

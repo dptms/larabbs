@@ -36,7 +36,9 @@ $api->version('v1', [
         // 登陆
         $api->post('authorizations', 'AuthorizationsController@store')->name('api.authorizations.store');
         // 小程序登陆
-        $api->post('weapp/authorizations','AuthorizationsController@weappStore')->name('api.weapp.authorizations.store');
+        $api->post('weapp/authorizations', 'AuthorizationsController@weappStore')->name('api.weapp.authorizations.store');
+        // 小程序注册
+        $api->post('weapp/users', 'UsersController@weappStore')->name('api.weapp.users.store');
         // 刷新 token
         $api->put('authorizations/current', 'AuthorizationsController@update')->name('api.authorizations.update');
         // 删除 token
