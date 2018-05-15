@@ -68,7 +68,7 @@ class UsersController extends Controller
     }
 
     public function weappStore(UserRequest $request){
-        // 魂村中手否存在对应的 key
+        // 缓存中是否存在对应的 key
         $verifyData = \Cache::get($request->verification_key);
 
         if(!$verifyData){

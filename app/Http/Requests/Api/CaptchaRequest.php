@@ -15,4 +15,11 @@ class CaptchaRequest extends FormRequest
             'phone' => 'required|regex:/^1[34578]\d{9}$/|unique:users',
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'phone.unique' => '手机号已被注册',
+        ];
+    }
 }
