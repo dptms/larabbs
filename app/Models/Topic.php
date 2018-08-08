@@ -22,6 +22,12 @@ class Topic extends Model
         return $this->hasMany(Reply::class);
     }
 
+    // 话题所有评论
+    public function topReplies()
+    {
+        return $this->replies()->limit(5);
+    }
+
     public function scopeWithOrder($query, $order)
     {
         switch ($order) {
