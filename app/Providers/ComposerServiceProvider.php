@@ -17,7 +17,7 @@ class ComposerServiceProvider extends ServiceProvider
         // 在 footer 视图中绑定 location 数据
         view()->composer('layouts._footer', function ($view) use ($request) {
             $location = geoip($request->ip());
-            $view->with('location', $location->country . '-' . $location->state_name . '-' . $location->city);
+            $view->with('location', $location->country . ' - ' . $location->state_name . ' - ' . $location->city);
         });
     }
 

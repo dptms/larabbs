@@ -4,8 +4,9 @@ namespace App\Models;
 
 use App\Models\Traits\ActiveUser;
 use App\Models\Traits\LastActivedAtHelper;
-use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use QrCode;
 use Spatie\Permission\Traits\HasRoles;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 
@@ -18,10 +19,7 @@ class User extends Authenticatable implements JWTSubject
     use HasRoles;
     use Notifiable {
         // 重写 trait 里面 notify 方法 变更方法名为 laravelNotify
-        notify as protected laravelNotify;
-    }
-
-    public function notify($instance)
+        notify as laravelNotify;}function notify($instance)
     {
         if ($this->id === \Auth::id()) {
             return;
@@ -30,7 +28,7 @@ class User extends Authenticatable implements JWTSubject
         $this->laravelNotify($instance);
     }
 
-    public function markAsRead()
+    function markAsRead()
     {
         $this->notification_count = 0;
         $this->save();
@@ -56,24 +54,24 @@ class User extends Authenticatable implements JWTSubject
     ];
 
     // 关联话题模型 一对多
-    public function topics()
+    function topics()
     {
         return $this->hasMany(Topic::class);
     }
 
     // 判断是否是作者
-    public function isAuthorOf($model)
+    function isAuthorOf($model)
     {
         return $this->id == $model->user_id;
     }
 
     // 用户所有评论
-    public function replies()
+    function replies()
     {
         return $this->hasMany(Reply::class);
     }
 
-    public function setPasswordAttribute($value)
+    function setPasswordAttribute($value)
     {
         if (strlen($value) != 60) {
             $value = bcrypt($value);
@@ -82,7 +80,7 @@ class User extends Authenticatable implements JWTSubject
         $this->attributes['password'] = $value;
     }
 
-    public function setAvatarAttribute($value)
+    function setAvatarAttribute($value)
     {
         if (!starts_with($value, 'http')) {
             $value = config('app.url') . '/uploads/images/avatar/' . $value;
@@ -91,15 +89,24 @@ class User extends Authenticatable implements JWTSubject
         $this->attributes['avatar'] = $value;
     }
 
-    public function getJWTIdentifier()
+    function getJWTIdentifier()
     {
         return $this->getKey();
     }
 
-    public function getJWTCustomClaims()
+    function getJWTCustomClaims()
     {
         return [];
     }
 
-
+    function qrcode()
+    {
+        return QrCode::format('png')->size(300)->geo(37.822214, -122.481769);
+        return QrCode::format('png')
+            ->size(300)
+            ->margin(0)
+            ->errorCorrection('H')
+            ->merge($this->avatar, 0.3, true)
+            ->generate(route('users.show', $this));
+    }
 }

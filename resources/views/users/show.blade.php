@@ -4,9 +4,9 @@
 
 @section('content')
     <div class="row">
-        <div class="col-lg-3 col-md-3 hidden-sm hidden-xs">
+        <div class="col-lg-3 col-md-3 hidden-sm hidden-xs user-info">
             {{--用户个人简介--}}
-            <div class="panel panel-default user-info">
+            <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="media">
                         <div align="center">
@@ -22,6 +22,23 @@
                             <h4><stront>最后活跃</stront></h4>
                             <p>{{$user->last_actived_at->diffForhumans()}}</p>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="media">
+                        <div align="center">
+                           <img class="thumbnail img-responsive qrcode" src="data:image/png;base64, {!! base64_encode($qrcode) !!}">
+                        </div>
+                    </div>
+                    <div class="media-body">
+                        <br>
+                        <form method="POST" action="{{ route('users.qrcode', $user) }}">
+                            {{ csrf_field() }}
+                            <button type="submit" class="btn btn-success btn-xs btn-block">下载</button>
+                        </form>
                     </div>
                 </div>
             </div>

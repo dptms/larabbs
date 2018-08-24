@@ -20,6 +20,8 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
 // Users Routes...
 Route::resource('users', 'UsersController', ['only' => ['show', 'edit', 'update']]);
+// 下载二维码
+Route::post('users/{user}/qrcode', 'UsersController@downloadQrcode')->name('users.qrcode');
 
 //Topics Routes...
 Route::resource('topics', 'TopicsController', ['only' => ['index', 'create', 'store', 'update', 'edit', 'destroy']]);
